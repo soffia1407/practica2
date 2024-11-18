@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Создание заявки</h1>
+
+<form action="{% url 'core:create_request' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="title">Название:</label>
+    <input type="text" name="title" id="title">
+    <label for="description">Описание:</label>
+    <textarea name="description" id="description"></textarea>
+    <label for="category">Категория:</label>
+    <select name="category" id="category">
+        {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <label for="photo">Фото помещения:</label>
+    <input type="file" name="photo" id="photo">
+    <input type="submit" value="Создать заявку">
+</form>
+{% endblock %}

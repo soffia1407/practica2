@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Мои заявки</h1>
+
+{% for request in requests %}
+<div>
+    <h2>{{ request.title }}</h2>
+    <p>{{ request.description }}</p>
+    <img src="{{ request.photo.url }}" alt="{{ request.title }}">
+    <p>Статус: {{ request.get_status_display }}</p>
+    <a href="{% url 'core:delete_request' request.id %}">Удалить</a>
+</div>
+{% endfor %}
+{% endblock %}

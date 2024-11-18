@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Главная страница</h1>
+
+{% for request in requests %}
+<div>
+    <h2>{{ request.title }}</h2>
+    <p>{{ request.description }}</p>
+    <img src="{{ request.photo.url }}" alt="{{ request.title }}">
+</div>
+{% endfor %}
+{% endblock %}

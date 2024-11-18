@@ -1,0 +1,92 @@
+body {
+  font-family: sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+/* Главная страница */
+
+.home-page {
+  background-color: #efefef;
+  padding: 20px;
+}
+
+.home-page h1 {
+  font-size: 24px;
+}
+
+.home-page p {
+  font-size: 16px;
+}
+
+.home-page img {
+  max-width: 100%;
+}
+
+/* Форма создания заявки */
+
+.create-request-form {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.create-request-form label {
+  font-weight: bold;
+}
+
+.create-request-form input,
+.create-request-form textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Страница просмотра заявок */
+
+.view-requests-page {
+  padding: 20px;
+  background-color: #efefef;
+}
+
+.view-requests-page table {
+  width: 100%;
+}
+
+.view-requests-page table th,
+.view-requests-page table td {
+  padding: 5px;
+}
+
+/* Панель администратора */
+
+.admin-panel {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.admin-panel table {
+  width: 100%;
+}
+
+.admin-panel table th,
+.admin-panel table td {
+  padding: 5px;
+}
+
+.admin-panel form {
+  padding: 20px;
+  background-color: #efefef;
+}
+
+.admin-panel form label {
+  font-weight: bold;
+}
+
+.admin-panel form input,
+.admin-panel form textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}

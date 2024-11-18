@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Панель управления</h1>
+
+<h2>Заявки</h2>
+
+{% for request in requests %}
+<div>
+    <h2>{{ request.title }}</h2>
+    <p>{{ request.description }}</p>
+    <img src="{{ request.photo.url }}" alt="{{ request.title }}">
+    <p>Статус: {{ request.get_status_display }}</p>
+    <form action="{% url 'core:change_request_status' request.id %}" method="post">
+        {% csrf_token %}
+        {% if request.status == 'new' %}
+        <input type="submit" name="status" value="Принять в работу">
+        {% elif request.status == 'in_progress' %}
+        <input type="submit" name="status" value="Выполнено">
+        {% endif %}
+    </form>
+</div>
+{% endfor %}
+
+<h2>Категории</h2>
+
+{% for category in categories %}
+<div>
+    <h2>{{ category.name }}</h2>
+    <a href="{% url 'core:delete_category' category.id %}">Удалить</a>
+</div>
+{% endfor %}
+
+<form action="{% url 'core:add_category' %}" method="post">
+    {% csrf_token %}
+    <label for="name">Название категории:</label>
+    <input type="text" name="name" id="name">
+    <input type="submit" value="Добавить категорию">
+</form>
+{% endblock %}
